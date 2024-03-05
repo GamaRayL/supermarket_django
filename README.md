@@ -88,7 +88,7 @@ Unidecode==1.3.8
 * `http://localhost:8000/categories/` - получение списка всех категорий с подкатегориями, а также пагинацией.
 * `http://localhost:8000/products/` - получение списка всех продуктов с пагинацией.
 * `http://localhost:8000/cart_item/create/` - создания нового товара в корзине.
-* `http://localhost:8000/cart_item/update/int:pk/` - обновления товара в корзине.
+* `http://localhost:8000/cart_item/update/int:pk/` - обновление товара в корзине.
 * `http://localhost:8000/cart_item/delete/int:pk/` - обновление товара из корзины.
 * `http://localhost:8000/cart/` - получение состава корзины с подсчетом количества товаров и суммы стоимости.
 * `http://localhost:8000/cart/clear/` - эндпоинт для полной очистки корзины.
