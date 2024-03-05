@@ -1,3 +1,4 @@
+from main.models.cart_model import Cart
 from users.models import User
 from django.core.management import BaseCommand
 
@@ -13,7 +14,7 @@ class Command(BaseCommand):
                 email=email,
                 password=password,
             )
-            user.save()
+            Cart.objects.create(user=user)
 
             self.stdout.write(
                 self.style.SUCCESS(f'Пользователь {email} успешно создан!')

@@ -1,5 +1,6 @@
 from users.models import User
 from rest_framework import status
+from main.models.cart_model import Cart
 from users.serializers import UserSerializer
 from rest_framework.response import Response
 from rest_framework.generics import CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, ListAPIView
@@ -14,7 +15,7 @@ class UserCreateAPIView(CreateAPIView):
             email=serializer.validated_data['email'],
             password=serializer.validated_data['password']
         )
-        user.save()
+        Cart.objects.create(user=user)
 
         return user
 

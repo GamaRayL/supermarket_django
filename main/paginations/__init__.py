@@ -1,0 +1,2 @@
+from main.paginations.category_pagination import CategoryPagination
+from main.paginations.product_pagination import ProductPagination
