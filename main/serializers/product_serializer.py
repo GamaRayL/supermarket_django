@@ -1,5 +1,5 @@
-from main.models import Product
-from main.serializers import ListCategorySerializer
+from main.models.product_model import Product
+from main.serializers.category_serializer import ListCategorySerializer
 from rest_framework.serializers import ModelSerializer, Serializer, ImageField
 
 

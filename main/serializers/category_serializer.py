@@ -1,4 +1,4 @@
-from main.models import Category
+from main.models.category_model import Category
 from rest_framework.serializers import ModelSerializer
 from rest_framework.fields import SerializerMethodField
 

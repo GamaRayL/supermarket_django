@@ -1,6 +1,6 @@
 from django.db import models
-from constants import NULLABLE
 from unidecode import unidecode
+from config.settings import NULLABLE
 from django.utils.text import slugify
 
 

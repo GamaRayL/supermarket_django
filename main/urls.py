@@ -1,16 +1,16 @@
 from django.urls import path
-from main.views import (
-    CategoryListAPIView,
-    ProductListAPIView,
+from main.apps import MainConfig
+from main.views.cart_view import (
     CartItemCreateAPIView,
     CartItemUpdateAPIView,
     CartItemDeleteAPIView,
-    CartDetailAPIView, ClearCartItemsAPIView
+    CartDetailAPIView,
+    ClearCartItemsAPIView
 )
-from main.apps import MainConfig
+from main.views.product_view import ProductListAPIView
+from main.views.category_view import CategoryListAPIView
 
 app_name = MainConfig.name
-
 
 urlpatterns = [
     path('categories/', CategoryListAPIView.as_view(), name='categories'),

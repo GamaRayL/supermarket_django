@@ -1,5 +1,5 @@
-from main.models.cart_model import Cart
 from users.models import User
+from main.models.cart_model import Cart
 from django.core.management import BaseCommand
 
 

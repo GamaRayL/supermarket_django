@@ -1,8 +1,8 @@
-from users.models import User
 from rest_framework import status
 from main.models.cart_model import Cart
-from users.serializers import UserSerializer
+from users.models.user_model import User
 from rest_framework.response import Response
+from users.serializers.user_serializer import UserSerializer
 from rest_framework.generics import CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, ListAPIView
 
 

@@ -1,7 +1,6 @@
+from main.models.cart_model import CartItem, Cart
 from rest_framework.relations import SlugRelatedField
 from rest_framework.serializers import ModelSerializer
-
-from main.models import CartItem, Cart
 
 
 class CartItemUpdateSerializer(ModelSerializer):

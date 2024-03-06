@@ -1,6 +1,6 @@
 from django.db import models
-from constants import USER_ROLES, ADMIN, MEMBER
 from django.contrib.auth.models import AbstractUser
+from config.settings import MEMBER, ADMIN, USER_ROLES
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.base_user import BaseUserManager
 

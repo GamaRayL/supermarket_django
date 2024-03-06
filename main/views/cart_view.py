@@ -1,12 +1,12 @@
-from users.models import User
 from rest_framework import status
 from django.db import IntegrityError
-from main.models import CartItem, Cart
 from rest_framework.views import APIView
+from users.models.user_model import User
 from rest_framework.response import Response
+from main.models.cart_model import CartItem, Cart
 from rest_framework.exceptions import ValidationError
-from main.serializers import CartItemSerializer, CartItemUpdateSerializer, CartSerializer
 from rest_framework.generics import CreateAPIView, UpdateAPIView, DestroyAPIView, get_object_or_404
+from main.serializers.cart_serializer import CartItemSerializer, CartItemUpdateSerializer, CartSerializer
 
 
 class CartItemCreateAPIView(CreateAPIView):
