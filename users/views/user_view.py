@@ -1,4 +1,6 @@
 from rest_framework import status
+from rest_framework.permissions import AllowAny
+
 from main.models.cart_model import Cart
 from users.models.user_model import User
 from rest_framework.response import Response

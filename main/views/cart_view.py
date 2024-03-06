@@ -1,5 +1,6 @@
 from rest_framework import status
 from django.db import IntegrityError
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from users.models.user_model import User
 from rest_framework.response import Response
@@ -22,6 +23,7 @@ class CartItemCreateAPIView(CreateAPIView):
     """
     queryset = CartItem.objects.all()
     serializer_class = CartItemSerializer
+    permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
         try:
@@ -46,6 +48,7 @@ class CartItemUpdateAPIView(UpdateAPIView):
         - Позволяет обновить данные товара по его идентификатору пользователя.
     """
     serializer_class = CartItemUpdateSerializer
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
@@ -60,6 +63,8 @@ class CartItemDeleteAPIView(DestroyAPIView):
        - Получает список товаров корзины для текущего пользователя.
        - Позволяет удалить товар из корзины по его идентификатору.
     """
+    permission_classes = [IsAuthenticated]
+
     def get_queryset(self):
         user = self.request.user
         return CartItem.objects.filter(user=user)
@@ -82,6 +87,7 @@ class CartDetailAPIView(APIView):
         - Возвращает данные о корзине в виде сериализованного объекта.
     """
     serializer_class = CartSerializer
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         user = self.request.user
@@ -100,6 +106,8 @@ class ClearCartItemsAPIView(APIView):
         - Получает пользователя по его идентификатору.
         - Получает корзину пользователя и удаляет из нее все товары.
     """
+    permission_classes = [IsAuthenticated]
+
     @staticmethod
     def get(request, *args, **kwargs):
         user = User.objects.get(id=5)
