@@ -1,7 +1,7 @@
-from main.models.product_model import Product
 from rest_framework.generics import ListAPIView
-from main.serializers.product_serializer import ProductSerializer
 
+from main.models.product_model import Product
+from main.serializers.product_serializer import ProductSerializer
 
 
 class ProductListAPIView(ListAPIView):

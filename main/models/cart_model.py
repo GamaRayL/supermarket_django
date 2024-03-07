@@ -3,9 +3,21 @@ from django.db import models
 
 class CartItem(models.Model):
     """Модель товара корзины"""
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE, verbose_name='пользователь')
-    product = models.ForeignKey('main.Product', on_delete=models.CASCADE, verbose_name='продукт')
-    quantity = models.PositiveIntegerField(default=1, verbose_name='количество')
+    product = models.ForeignKey(
+        'main.Product',
+        on_delete=models.CASCADE,
+        verbose_name='продукт',
+    )
+    quantity = models.PositiveIntegerField(
+        default=1,
+        verbose_name='количество',
+    )
+    cart = models.ForeignKey(
+        'main.Cart',
+        on_delete=models.CASCADE,
+        verbose_name='корзина',
+        related_name='items',
+    )
 
     @property
     def total_price(self):
@@ -15,15 +27,19 @@ class CartItem(models.Model):
         return f'{self.quantity} x {self.product}'
 
     class Meta:
-        unique_together = ('user', 'product')
+        unique_together = ('cart', 'product')
         verbose_name = 'товар'
         verbose_name_plural = 'товары'
 
 
 class Cart(models.Model):
     """Модель корзины"""
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE, verbose_name='пользователь')
-    items = models.ManyToManyField('main.CartItem', blank=True, verbose_name='товары')
+    user = models.OneToOneField(
+        'users.User',
+        on_delete=models.CASCADE,
+        verbose_name='пользователь',
+        related_name='cart',
+    )
 
     @property
     def total_price(self):
