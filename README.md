@@ -115,19 +115,18 @@ Unidecode == 1.3
 
 * **GET**:`http://localhost:8000/categories/` - получение списка всех категорий с подкатегориями, а также пагинацией.
 * **GET**:`http://localhost:8000/products/` - получение списка всех продуктов с пагинацией.
-
-* **POST**: `http://localhost:8000/carts/int:pk/items/` - создание нового товара в корзине.
-* **PUT**: `http://localhost:8000/carts/int:pk/items/int:pk/` - обновление товара в корзине.
-* **DELETE**: `http://localhost:8000/carts/int:pk/items/int:pk/` - удаление товара из корзины.
+* **GET**:`http://localhost:8000/users/token/` - получение токена доступа.
+* **GET**:`http://localhost:8000/users/token/refresh/` - обновление токена доступа.
+* **POST**: `http://localhost:8000/users/register/` - регистрация нового пользователя.
+* **PATH**: `http://localhost:8000/users/update/int:pk/` - обновление информации о пользователе.
+* **DELETE**: `http://localhost:8000/users/delete/int:pk/` - удаление пользователя.
 
 #### _ViewSets_
 
 * **GET**: `http://localhost:8000/carts/int:pk/` - получение состава корзины с подсчетом количества товаров и суммы
   стоимости.
+* **PUT**: `http://localhost:8000/carts/int:pk/items/int:pk/` - обновление товара в корзине.
+* **POST**: `http://localhost:8000/carts/int:pk/items/` - создание нового товара в корзине.
 * **DELETE**: `http://localhost:8000/carts/int:pk/clear/` - полная очистка корзины.
+* **DELETE**: `http://localhost:8000/carts/int:pk/items/int:pk/` - удаление товара из корзины.
 
-* `http://localhost:8000/users/register/` - эндпоинт для регистрации нового пользователя.
-* `http://localhost:8000/users/update/int:pk/` - обновление информации о пользователе.
-* `http://localhost:8000/users/delete/int:pk/` - эндпоинт для удаления пользователя.
-* `http://localhost:8000/users/token/` - эндпоинт для получения токена доступа.
-* `http://localhost:8000/users/token/refresh/` - эндпоинт для обновления токена доступа.
